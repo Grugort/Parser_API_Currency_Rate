@@ -120,14 +120,11 @@ root.geometry("300x200")
 
 label = tk.Label(root, text="Меню:", font=('Arial', 14))
 label.pack(pady=10)
-
-btn1 = tk.Button(root, text="1. Текущие курсы валют", command=current, width=25)
+btn1 = tk.Button(root,text="1. Текущие курсы валют", command=current,padx = 25,pady = 5,bd = 0, fg = 'red', bg = 'blue', cursor = 'pencil')
 btn1.pack(pady=5)
-
-btn2 = tk.Button(root, text="2. Курсы валют на определенную дату", command=history, width=25)
+btn2 = tk.Button(root,text="2. Курсы валют на определенную дату", command=history,padx = 25,pady = 5,bd = 0, fg = 'red', bg = 'blue', cursor = 'clock')
 btn2.pack(pady=5)
-
-btn3 = tk.Button(root, text="3. Выход", command=exit, width=25)
+btn3 = tk.Button(root,text="3. Выход", command=exit,padx = 25,pady = 5,bd = 0, fg = 'red', bg = 'blue', cursor = 'spider')
 btn3.pack(pady=5)
 
 root.mainloop()
