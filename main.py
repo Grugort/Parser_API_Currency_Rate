@@ -1,5 +1,7 @@
 import matplotlib.pyplot as plt
 import requests
+import tkinter as tk
+from tkinter import messagebox
 from datetime import datetime, timedelta
 
 
@@ -76,7 +78,7 @@ def get_valid_date():
 def main():
     print("Парсер курсов валют с API ЦБ РФ")
     print("=" * 40)
-
+"""
     while True:
         print("\nМеню:")
         print("1. Текущие курсы валют")
@@ -97,6 +99,38 @@ def main():
             break
         else:
             print("Неверный выбор. Попробуйте снова.")
+"""
+
+def current():
+    rates = get_currency_rates()
+    print_currency_rates(rates)
+
+def history():
+    date_str = get_valid_date()
+    rates = get_currency_rates(date_str)
+    print_currency_rates(rates)
+
+def exit():
+    print("До свидания!")
+    root.destroy()
+
+root = tk.Tk()
+root.title("Меню курсов валют")
+root.geometry("300x200")
+
+label = tk.Label(root, text="Меню:", font=('Arial', 14))
+label.pack(pady=10)
+
+btn1 = tk.Button(root, text="1. Текущие курсы валют", command=current, width=25)
+btn1.pack(pady=5)
+
+btn2 = tk.Button(root, text="2. Курсы валют на определенную дату", command=history, width=25)
+btn2.pack(pady=5)
+
+btn3 = tk.Button(root, text="3. Выход", command=exit, width=25)
+btn3.pack(pady=5)
+
+root.mainloop()
 
 
 if __name__ == "__main__":
